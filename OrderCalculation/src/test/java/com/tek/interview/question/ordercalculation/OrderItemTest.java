@@ -15,11 +15,16 @@ import org.junit.Test;
  */
 public class OrderItemTest
 {
-	private class ConcreteOrderItem implements OrderItem
+	protected class ConcreteOrderItem implements OrderItem
 	{
 		private String name;
 		private double unitPrice;
 		private int quantity;
+		
+		public ConcreteOrderItem()
+		{
+			
+		}
 		
 		public ConcreteOrderItem(String name, double unitPrice, int quantity)
 		{
