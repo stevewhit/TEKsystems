@@ -1,4 +1,4 @@
-package com.tek.interview.question;
+package com.tek.interview.question.main;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
