@@ -83,11 +83,11 @@ public abstract class AbstractOrderItem implements OrderItem
 	/**
 	 * Checks for a valid name and updates the order item name if valid. 
 	 * @param name - Name or description of the order item.
-	 * @throws IllegalArgumentException - Throws if name is null or empty.
+	 * @throws IllegalArgumentException - Throws if name is null, empty, or only spaces.
 	 */
 	private void setName(String name) throws IllegalArgumentException
 	{
-		if (name == null || name.isEmpty()) 
+		if (name == null || name.trim().isEmpty()) 
 		{
 			throw new IllegalArgumentException("Invalid name supplied for the item. The name must contain 1 or more characters");
 		}

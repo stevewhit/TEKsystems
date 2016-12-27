@@ -15,7 +15,7 @@ import org.junit.Test;
  */
 public class AbstractOrderItemTest
 {
-	protected class ConcreteAbstractOrderItem extends AbstractOrderItem
+	private class ConcreteAbstractOrderItem extends AbstractOrderItem
 	{
 		public ConcreteAbstractOrderItem(String name, double unitPrice) throws IllegalArgumentException
 		{
@@ -56,7 +56,7 @@ public class AbstractOrderItemTest
 	@Test(expected=IllegalArgumentException.class)
 	public void testAbstractOrderItemStringDouble_InvalidName1()
 	{
-		ConcreteAbstractOrderItem badOrderItem = new ConcreteAbstractOrderItem("", 123.33);
+		concreteAbstractOrderItem = new ConcreteAbstractOrderItem("", 123.33);
 	}
 	
 	/**
@@ -65,7 +65,16 @@ public class AbstractOrderItemTest
 	@Test(expected=IllegalArgumentException.class)
 	public void testAbstractOrderItemStringDouble_InvalidName2()
 	{
-		ConcreteAbstractOrderItem badOrderItem = new ConcreteAbstractOrderItem(null, 123.33);
+		concreteAbstractOrderItem = new ConcreteAbstractOrderItem(" ", 123.33);
+	}
+	
+	/**
+	 * Test method for {@link com.tek.interview.question.ordercalculation.impl.AbstractOrderItem#AbstractOrderItem(java.lang.String, double)}.
+	 */
+	@Test(expected=IllegalArgumentException.class)
+	public void testAbstractOrderItemStringDouble_InvalidName3()
+	{
+		concreteAbstractOrderItem = new ConcreteAbstractOrderItem(null, 123.33);
 	}
 	
 	/**
@@ -74,16 +83,18 @@ public class AbstractOrderItemTest
 	@Test(expected=IllegalArgumentException.class)
 	public void testAbstractOrderItemStringDouble_InvalidUnitPrice()
 	{
-		ConcreteAbstractOrderItem badOrderItem = new ConcreteAbstractOrderItem("valid name", -0.00000000000000000001);
+		concreteAbstractOrderItem = new ConcreteAbstractOrderItem("valid name", -0.00000000000000000001);
 	}
 	
 	/**
 	 * Test method for {@link com.tek.interview.question.ordercalculation.impl.AbstractOrderItem#AbstractOrderItem(java.lang.String, double)}.
 	 */
 	@Test
-	public void testAbstractOrderItemStringDouble_ValidConstructor()
+	public void testAbstractOrderItemStringDouble_ValidConstructors()
 	{
-		ConcreteAbstractOrderItem goodOrderItem = new ConcreteAbstractOrderItem("valid name", 000000000000000000000000000000000.000000000000000000000000000000001);
+		concreteAbstractOrderItem = new ConcreteAbstractOrderItem("valid name", 000000000000000000000000000000000.000000000000000000000000000000001);
+		concreteAbstractOrderItem = new ConcreteAbstractOrderItem("        valiiiiid_nemm21234_..##$$1324", 00011234132421);
+		concreteAbstractOrderItem = new ConcreteAbstractOrderItem("_", 11.132412353245);
 	}
 	
 	// REGION: Constructor tests with Name, UnitPrice, and Quantity
@@ -93,7 +104,7 @@ public class AbstractOrderItemTest
 	@Test(expected=IllegalArgumentException.class)
 	public void testAbstractOrderItemStringDoubleInt_InvalidName1()
 	{
-		ConcreteAbstractOrderItem badOrderItem = new ConcreteAbstractOrderItem("", 123, 1);
+		concreteAbstractOrderItem = new ConcreteAbstractOrderItem("", 123, 1);
 	}
 	
 	/**
@@ -102,7 +113,16 @@ public class AbstractOrderItemTest
 	@Test(expected=IllegalArgumentException.class)
 	public void testAbstractOrderItemStringDoubleInt_InvalidName2()
 	{
-		ConcreteAbstractOrderItem badOrderItem = new ConcreteAbstractOrderItem(null, 1234.3, 12);
+		concreteAbstractOrderItem = new ConcreteAbstractOrderItem(" ", 123, 1);
+	}
+	
+	/**
+	 * Test method for {@link com.tek.interview.question.ordercalculation.impl.AbstractOrderItem#AbstractOrderItem(java.lang.String, double, int)}.
+	 */
+	@Test(expected=IllegalArgumentException.class)
+	public void testAbstractOrderItemStringDoubleInt_InvalidName3()
+	{
+		concreteAbstractOrderItem = new ConcreteAbstractOrderItem(null, 1234.3, 12);
 	}
 
 	/**
@@ -111,7 +131,7 @@ public class AbstractOrderItemTest
 	@Test(expected=IllegalArgumentException.class)
 	public void testAbstractOrderItemStringDoubleInt_InvalidUnitPrice()
 	{
-		ConcreteAbstractOrderItem badOrderItem = new ConcreteAbstractOrderItem("valid name", -00000000000000000000000000.0000000000000000000000001, 23);
+		concreteAbstractOrderItem = new ConcreteAbstractOrderItem("valid name", -00000000000000000000000000.0000000000000000000000001, 23);
 	}
 	
 	/**
@@ -120,16 +140,16 @@ public class AbstractOrderItemTest
 	@Test(expected=IllegalArgumentException.class)
 	public void testAbstractOrderItemStringDoubleInt_InvalidQuantity()
 	{
-		ConcreteAbstractOrderItem badOrderItem = new ConcreteAbstractOrderItem("valid name", 00000000000000000000000000.0000000000000000000000001, 0);
+		concreteAbstractOrderItem = new ConcreteAbstractOrderItem("valid name", 00000000000000000000000000.0000000000000000000000001, 0);
 	}
 	
 	/**
 	 * Test method for {@link com.tek.interview.question.ordercalculation.impl.AbstractOrderItem#AbstractOrderItem(java.lang.String, double, int)}.
 	 */
 	@Test
-	public void testAbstractOrderItemStringDoubleInt_Valid()
+	public void testAbstractOrderItemStringDoubleInt_ValidConstructors()
 	{
-		ConcreteAbstractOrderItem goodOrderItem = new ConcreteAbstractOrderItem("valid name", 00000000000000000000000000000000.000000000000000000000000000000001, 12335448);
+		concreteAbstractOrderItem = new ConcreteAbstractOrderItem("valid name", 00000000000000000000000000000000.000000000000000000000000000000001, 12335448);
 	}
 	
 	// END CONSTRUCTORS REGION.
@@ -169,8 +189,8 @@ public class AbstractOrderItemTest
 	{
 		assertEquals(concreteAbstractOrderItem.toString(), "3 Chocolate cake: 123.456");
 		
-		ConcreteAbstractOrderItem newOrderItem = new ConcreteAbstractOrderItem("Chocolate cake", 00000000000000000000000.000000000000000000001, 3);
-		assertEquals(newOrderItem.toString(), "3 Chocolate cake: 0.000000000000000000001");
+		concreteAbstractOrderItem = new ConcreteAbstractOrderItem("Chocolate cake", 00000000000000000000000.000000000000000000001, 3);
+		assertEquals(concreteAbstractOrderItem.toString(), "3 Chocolate cake: 0.000000000000000000001");
 	}
 	
 }
