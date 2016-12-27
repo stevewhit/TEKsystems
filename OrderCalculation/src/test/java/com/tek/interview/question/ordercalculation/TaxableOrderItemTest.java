@@ -17,16 +17,21 @@ public class TaxableOrderItemTest extends OrderItemTest
 {
 	protected class ConcreteTaxableOrderItem extends ConcreteOrderItem implements TaxableOrderItem
 	{
-		private double taxMultiplier;
+		private double taxDecimalValue;
 		
-		public ConcreteTaxableOrderItem(double taxMultiplier)
+		public ConcreteTaxableOrderItem(double taxDecimalValue)
 		{
-			this.taxMultiplier = taxMultiplier;
+			this.taxDecimalValue = taxDecimalValue;
 		}
 
-		public double getTaxMultiplier()
+		public double getTaxDecimalValue()
 		{
-			return this.taxMultiplier;
+			return this.taxDecimalValue;
+		}
+		
+		public double getTaxPercentValue()
+		{
+			return this.taxDecimalValue * 100.0;
 		}
 	}
 	
@@ -56,12 +61,20 @@ public class TaxableOrderItemTest extends OrderItemTest
 	}
 	
 	/**
-	 * Test method for {@link com.tek.interview.question.ordercalculation.TaxableOrderItem#getTaxMultiplier()}.
+	 * Test method for {@link com.tek.interview.question.ordercalculation.TaxableOrderItem#getTaxDecimalValue()}.
+	 */
+	@Test
+	public void testGetTaxDecimalValue()
+	{
+		assertTrue(concreteTaxableOrderItem.getTaxDecimalValue() == .60329);
+	}
+	
+	/**
+	 * Test method for {@link com.tek.interview.question.ordercalculation.TaxableOrderItem#getTaxPercentValue()}.
 	 */
 	@Test
 	public void testGetTaxMultiplier()
 	{
-		assertTrue(concreteTaxableOrderItem.getTaxMultiplier() == .60329);
+		assertTrue(concreteTaxableOrderItem.getTaxPercentValue() == 60.329);
 	}
-	
 }

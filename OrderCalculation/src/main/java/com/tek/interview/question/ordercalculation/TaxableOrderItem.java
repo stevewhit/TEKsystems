@@ -8,8 +8,14 @@ package com.tek.interview.question.ordercalculation;
 public interface TaxableOrderItem extends OrderItem
 {
 	/**
-	 * Returns the tax multiplier associated with this item.
-	 * @return Returns the tax multiplier as a double in decimal format. ie. 60.2% tax returns '.602'
+	 * Returns the tax decimal value associated with this item.
+	 * @return Returns the tax as a double in decimal format. ie. A 60.2% tax rate would return .602
 	 */
-	public double getTaxMultiplier();
+	public double getTaxDecimalValue();
+	
+	/**
+	 * Returns the tax percent value associated with this item.
+	 * @return Returns the tax as a double in percent format. ie. A 60.2% tax rate would return 60.2
+	 */
+	public double getTaxPercentValue();
 }
