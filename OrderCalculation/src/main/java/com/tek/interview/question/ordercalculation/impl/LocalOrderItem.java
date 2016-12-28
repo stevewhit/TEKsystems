@@ -25,7 +25,7 @@ public class LocalOrderItem extends AbstractOrderItem
 	 * @param unitPrice Price for one unit of the order item.
 	 * @throws IllegalArgumentException Throws if name is null or empty, or if unitPrice is less than 0
 	 */
-	public LocalOrderItem(String name, double unitPrice) throws IllegalArgumentException
+	protected LocalOrderItem(String name, double unitPrice) throws IllegalArgumentException
 	{
 		super(name, unitPrice);
 	}
@@ -37,7 +37,7 @@ public class LocalOrderItem extends AbstractOrderItem
 	 * @param quantity The amount of these items to be added to order.
 	 * @throws IllegalArgumentException Throws if name is null or empty, or if unitPrice is less than 0
 	 */
-	public LocalOrderItem(String name, double unitPrice, int quantity) throws IllegalArgumentException
+	protected LocalOrderItem(String name, double unitPrice, int quantity) throws IllegalArgumentException
 	{
 		super(name, unitPrice, quantity);
 	}
