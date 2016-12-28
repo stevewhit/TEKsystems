@@ -56,6 +56,11 @@ public class OrderItemTest
 		{
 			return itemId;
 		}
+
+		public boolean isValidOrderItem()
+		{
+			return true;
+		}
 	}
 	
 	public ConcreteOrderItem concreteOrderItem;

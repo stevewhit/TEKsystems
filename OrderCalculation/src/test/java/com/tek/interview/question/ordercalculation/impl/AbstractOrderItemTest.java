@@ -100,8 +100,13 @@ public class AbstractOrderItemTest
 	public void testAbstractOrderItemStringDouble_ValidConstructors()
 	{
 		concreteAbstractOrderItem = new ConcreteAbstractOrderItem("valid name", 000000000000000000000000000000000.000000000000000000000000000000001);
+		assertTrue(concreteAbstractOrderItem.isValidOrderItem());
+		
 		concreteAbstractOrderItem = new ConcreteAbstractOrderItem("        valiiiiid_nemm21234_..##$$1324", 00011234132421);
+		assertTrue(concreteAbstractOrderItem.isValidOrderItem());
+		
 		concreteAbstractOrderItem = new ConcreteAbstractOrderItem("_", 11.132412353245);
+		assertTrue(concreteAbstractOrderItem.isValidOrderItem());
 	}
 	
 	// REGION: Constructor tests with Name, UnitPrice, and Quantity
@@ -157,6 +162,7 @@ public class AbstractOrderItemTest
 	public void testAbstractOrderItemStringDoubleInt_ValidConstructors()
 	{
 		concreteAbstractOrderItem = new ConcreteAbstractOrderItem("valid name", 00000000000000000000000000000000.000000000000000000000000000000001, 12335448);
+		assertTrue(concreteAbstractOrderItem.isValidOrderItem());
 	}
 	
 	// END CONSTRUCTORS REGION.
@@ -210,4 +216,12 @@ public class AbstractOrderItemTest
 		assertTrue(concreteAbstractOrderItem.getItemId().trim().length() > 0);
 	}
 	
+	/**
+	 * Test method for {@link com.tek.interview.question.ordercalculation.impl.AbstractOrderItem#isValidOrderItem()}.
+	 */
+	@Test
+	public void testIsValidOrderItem()
+	{		
+		assertTrue(concreteAbstractOrderItem.isValidOrderItem());
+	}
 }

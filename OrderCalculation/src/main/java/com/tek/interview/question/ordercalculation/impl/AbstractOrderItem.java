@@ -58,6 +58,11 @@ public abstract class AbstractOrderItem implements OrderItem
 		setQuantity(quantity);
 		
 		this.itemId = generateUniqueID();
+		
+		if (!isValidOrderItem())
+		{
+			throw new IllegalArgumentException("OrderItem could not be created because invalid arguments were supplied.");
+		}
 	}
 	
 	/**
@@ -90,6 +95,14 @@ public abstract class AbstractOrderItem implements OrderItem
 	public String getItemId()
 	{
 		return itemId;
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean isValidOrderItem()
+	{
+		return (name != null) && (!name.trim().isEmpty()) && (unitPrice >= 0) && (quantity > 0) && (itemId != null) && (!itemId.trim().isEmpty());
 	}
 
 	/**
@@ -154,7 +167,7 @@ public abstract class AbstractOrderItem implements OrderItem
 	 * Creates and returns a psuedo-random ID.
 	 * @return Returns a psuedo-random ID as a String.
 	 */
-	private String generateUniqueID()
+	private static String generateUniqueID()
 	{
 		return UUID.randomUUID().toString();
 	}

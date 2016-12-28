@@ -31,4 +31,10 @@ public interface OrderItem extends TaxableObject
 	 * @return Returns the unique id of this item as a String.
 	 */
 	public String getItemId();
+	
+	/**
+	 * Verifies that this orderItem is valid by checking the necessary fields.
+	 * @return Returns true if the item is valid and false if the item is not valid.
+	 */
+	public boolean isValidOrderItem();
 }
