@@ -157,4 +157,16 @@ public class ImportedOrderItemTest extends AbstractOrderItemTest
 	{
 		assertTrue(importedOrderItem.getCalculatedTaxAmountUSD() == 239.62);
 	}	
+	
+	/**
+	 * Test method for {@link com.tek.interview.question.ordercalculation.impl.ImportedOrderItem#toString()}.
+	 */
+	@Test
+	public void testToString()
+	{	
+		assertEquals(importedOrderItem.toString(), "123 ValidName: 1837.1");
+		
+		importedOrderItem = new ImportedOrderItem("ValidName", 47.50, 1);
+		assertEquals(importedOrderItem.toString(), "1 ValidName: 54.62");
+	}
 }

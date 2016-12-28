@@ -195,18 +195,6 @@ public class AbstractOrderItemTest
 	}
 	
 	/**
-	 * Test method for {@link com.tek.interview.question.ordercalculation.impl.AbstractOrderItem#toString()}.
-	 */
-	@Test
-	public void testToString()
-	{
-		assertEquals(concreteAbstractOrderItem.toString(), "3 Chocolate cake: 123.456");
-		
-		concreteAbstractOrderItem = new ConcreteAbstractOrderItem("Chocolate cake", 00000000000000000000000.000000000000000000001, 3);
-		assertEquals(concreteAbstractOrderItem.toString(), "3 Chocolate cake: 0.000000000000000000001");
-	}
-	
-	/**
 	 * Test method for {@link com.tek.interview.question.ordercalculation.impl.AbstractOrderItem#getItemId()}.
 	 */
 	@Test

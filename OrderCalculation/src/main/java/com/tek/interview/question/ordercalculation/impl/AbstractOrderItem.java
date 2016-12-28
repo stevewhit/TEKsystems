@@ -61,6 +61,10 @@ public abstract class AbstractOrderItem implements OrderItem
 		
 		if (!isValidOrderItem())
 		{
+			this.name = null;
+			this.unitPrice = -1;
+			this.quantity = -1;
+			
 			throw new IllegalArgumentException("OrderItem could not be created because invalid arguments were supplied.");
 		}
 	}
@@ -103,19 +107,6 @@ public abstract class AbstractOrderItem implements OrderItem
 	public boolean isValidOrderItem()
 	{
 		return (name != null) && (!name.trim().isEmpty()) && (unitPrice >= 0) && (quantity > 0) && (itemId != null) && (!itemId.trim().isEmpty());
-	}
-
-	/**
-	 * Returns the item in the following format "'quantity' 'name': 'unitPrice'". 
-	 * <pre>
-	 * Example: 1 box of dark chocolates: 19.85
-	 * </pre>
-	 */
-	@Override
-	public String toString()
-	{
-		DecimalFormat formatter = new DecimalFormat("0.####################################");
-		return String.format("%1$d %2$s: %3$s", this.quantity, this.name, formatter.format(this.unitPrice));
 	}
 	
 	/**

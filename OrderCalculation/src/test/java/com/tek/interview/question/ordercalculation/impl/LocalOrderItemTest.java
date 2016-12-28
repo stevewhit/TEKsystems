@@ -158,4 +158,15 @@ public class LocalOrderItemTest extends AbstractOrderItemTest
 		assertTrue(localOrderItem.getCalculatedTaxAmountUSD() == 159.75);
 	}
 	
+	/**
+	 * Test method for {@link com.tek.interview.question.ordercalculation.impl.LocalOrderItem#toString()}.
+	 */
+	@Test
+	public void testToString()
+	{	
+		assertEquals(localOrderItem.toString(), "123 ValidName: 1757.23");
+		
+		localOrderItem = new LocalOrderItem("ValidName", 9.75, 1);
+		assertEquals(localOrderItem.toString(), "1 ValidName: 10.73");
+	}
 }

@@ -1,5 +1,7 @@
 package com.tek.interview.question.ordercalculation.impl;
 
+import java.text.DecimalFormat;
+
 /**
  * An item that is part of an order that is imported which contains a name, a unit price, and a quantity. The item has a standard tax rate of 15%.
  * @author Steve Whitmire (swhit114@gmail.com)
@@ -45,6 +47,27 @@ public final class ImportedOrderItem extends AbstractOrderItem
 	 */
 	public double getCalculatedTaxAmountUSD()
 	{
-		return TaxCalculatorUtils.calculateTaxUSD(super.getUnitPrice(), super.getQuantity(), ImportedOrderItem.TAX_RATE_DECIMAL_VALUE);
+		return SalesCalculatorUtils.calculateTaxUSD(super.getUnitPrice(), super.getQuantity(), ImportedOrderItem.TAX_RATE_DECIMAL_VALUE);
+	}
+	
+	/**
+	 * {@inheritDoc} 
+	 * <p>Note: Imported sales tax is incorporated in final price.</p>
+	 */
+	@Override
+	public String toString()
+	{
+		if ( isValidOrderItem() )
+		{		
+			DecimalFormat formatter = new DecimalFormat("0.####################################");
+			
+			double priceTimesQuantity = getUnitPrice() * getQuantity();
+			double priceWithTax = priceTimesQuantity * (1.0 + ImportedOrderItem.TAX_RATE_DECIMAL_VALUE);		
+			double roundedPriceWithTax = SalesCalculatorUtils.roundToTwoDecimalPlaces(priceWithTax);
+			
+			return String.format("%1$d %2$s: %3$s", getQuantity(), getName(), formatter.format(roundedPriceWithTax));
+		}
+		
+		return "";
 	}
 }

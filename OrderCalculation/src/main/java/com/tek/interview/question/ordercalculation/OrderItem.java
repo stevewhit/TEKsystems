@@ -37,4 +37,11 @@ public interface OrderItem extends TaxableObject
 	 * @return Returns true if the item is valid and false if the item is not valid.
 	 */
 	public boolean isValidOrderItem();
+	
+	/**
+	 * Returns the item in the following format "'quantity' 'name': 'unitPrice'". 
+	 * <pre>Example: 1 box of dark chocolates: 19.85</pre>
+	 */
+	@Override
+	public String toString();
 }
