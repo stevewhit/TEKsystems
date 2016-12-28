@@ -7,12 +7,12 @@ import java.math.BigDecimal;
  * @author Steve Whitmire (swhit114@gmail.com)
  *
  */
-public final class TaxCalculatorUtils
+public final class SalesCalculatorUtils
 {
 	/**
 	 * To make it impossible to instantiate this class. 
 	 */
-	private TaxCalculatorUtils(){}
+	private SalesCalculatorUtils(){}
 	
 	/**
 	 * Calculates the tax amount of one item in USD. 
@@ -59,7 +59,7 @@ public final class TaxCalculatorUtils
 	 * @param valueToRound The value that needs to be rounded.
 	 * @return Returns the valueToRound rounded to two decimal places, as a double.
 	 */
-	private static double roundToTwoDecimalPlaces(double valueToRound)
+	public static double roundToTwoDecimalPlaces(double valueToRound)
 	{
 		return BigDecimal.valueOf(valueToRound).setScale(2, BigDecimal.ROUND_HALF_DOWN).doubleValue(); 
 	}
