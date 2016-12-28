@@ -150,23 +150,12 @@ public class LocalOrderItemTest extends AbstractOrderItemTest
 	// END CONSTRUCTORS REGION	
 	
 	/**
-	 * Test method for {@link com.tek.interview.question.ordercalculation.impl.LocalOrderItem#getTaxDecimalValue()}.
+	 * Test method for {@link com.tek.interview.question.ordercalculation.impl.LocalOrderItem#getCalculatedTaxAmountUSD()}.
 	 */
 	@Test
-	public void testGetTaxDecimalValue()
+	public void testGetCalculatedTaxAmountUSD()
 	{
-		assertTrue(LocalOrderItem.TAX_DECIMAL_VALUE == localOrderItem.getTaxDecimalValue());
-		assertTrue(localOrderItem.getTaxDecimalValue() == 0.10d);
-	}
-	
-	/**
-	 * Test method for {@link com.tek.interview.question.ordercalculation.impl.LocalOrderItem#getTaxPercentValue()}.
-	 */
-	@Test
-	public void testGetTaxPercentValue()
-	{
-		assertTrue(LocalOrderItem.TAX_PERCENT_VALUE == localOrderItem.getTaxPercentValue());
-		assertTrue(localOrderItem.getTaxPercentValue() == 10.0d);
+		assertTrue(localOrderItem.getCalculatedTaxAmountUSD() == 159.75);
 	}
 	
 }

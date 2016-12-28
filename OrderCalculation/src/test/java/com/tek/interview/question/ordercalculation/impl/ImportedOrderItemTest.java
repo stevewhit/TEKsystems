@@ -150,23 +150,11 @@ public class ImportedOrderItemTest extends AbstractOrderItemTest
 	// END CONSTRUCTORS REGION	
 	
 	/**
-	 * Test method for {@link com.tek.interview.question.ordercalculation.impl.ImportedOrderItem#getTaxDecimalValue()}.
+	 * Test method for {@link com.tek.interview.question.ordercalculation.impl.ImportedOrderItem#getCalculatedTaxAmountUSD()}.
 	 */
 	@Test
-	public void testGetTaxDecimalValue()
+	public void testGetCalculatedTaxAmountUSD()
 	{
-		assertTrue(ImportedOrderItem.TAX_DECIMAL_VALUE == importedOrderItem.getTaxDecimalValue());
-		assertTrue(importedOrderItem.getTaxDecimalValue() == 0.15d);
-	}
-	
-	/**
-	 * Test method for {@link com.tek.interview.question.ordercalculation.impl.ImportedOrderItem#getTaxPercentValue()}.
-	 */
-	@Test
-	public void testGetTaxPercentValue()
-	{
-		assertTrue(ImportedOrderItem.TAX_PERCENT_VALUE == importedOrderItem.getTaxPercentValue());
-		assertTrue(importedOrderItem.getTaxPercentValue() == 15.0d);
-	}
-	
+		assertTrue(importedOrderItem.getCalculatedTaxAmountUSD() == 239.62);
+	}	
 }

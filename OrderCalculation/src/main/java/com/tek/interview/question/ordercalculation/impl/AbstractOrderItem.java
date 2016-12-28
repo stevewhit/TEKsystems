@@ -4,13 +4,14 @@ package com.tek.interview.question.ordercalculation.impl;
 import java.text.DecimalFormat;
 
 import com.tek.interview.question.ordercalculation.OrderItem;
+import com.tek.interview.question.ordercalculation.TaxableObject;
 
 /**
  * Creates an abstract order item containing a name, unit price, and quantity
  * @author Steve Whitmire (swhit114@gmail.com)
  *
  */
-public abstract class AbstractOrderItem implements OrderItem
+public abstract class AbstractOrderItem implements OrderItem, TaxableObject
 {
 	/**
 	 * The name/description of the order item.
@@ -52,21 +53,30 @@ public abstract class AbstractOrderItem implements OrderItem
 		setQuantity(quantity);
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public String getName()
 	{
 		return this.name;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public double getUnitPrice()
 	{
 		return this.unitPrice;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public int getQuantity()
 	{
 		return this.quantity;
 	}
-	
+
 	/**
 	 * Returns the item in the following format "'quantity' 'name': 'unitPrice'". 
 	 * <pre>

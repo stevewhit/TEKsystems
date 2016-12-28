@@ -1,18 +1,21 @@
 package com.tek.interview.question.ordercalculation.impl;
 
-import com.tek.interview.question.ordercalculation.TaxableOrderItem;
-
-public class LocalOrderItem extends AbstractOrderItem implements TaxableOrderItem
+/**
+ * An item that is part of an order that is local which contains a name, a unit price, and a quantity. The item has a standard tax rate of 10%.
+ * @author Steve Whitmire (swhit114@gmail.com)
+ *
+ */
+public class LocalOrderItem extends AbstractOrderItem
 {
 	/**
 	 * Constant tax rate for local order items in decimal form.
 	 */
-	public static final double TAX_DECIMAL_VALUE = .10d;
+	public static final double TAX_RATE_DECIMAL_VALUE = .10d;
 	
 	/**
 	 * Constant tax rate for local order items in percent form.
 	 */
-	public static final double TAX_PERCENT_VALUE = 10.0d;
+	public static final double TAX_RATE_PERCENT_VALUE = 10.0d;
 	
 	/**
 	 * Constructor that accepts a name and unit price. By default the quantity is set to 1.
@@ -36,14 +39,12 @@ public class LocalOrderItem extends AbstractOrderItem implements TaxableOrderIte
 	{
 		super(name, unitPrice, quantity);
 	}
-	
-	public double getTaxDecimalValue()
+
+	/**
+	 * {@inheritDoc} <pre>Note: Tax rate for local items is 10%.</pre>
+	 */
+	public double getCalculatedTaxAmountUSD()
 	{
-		return LocalOrderItem.TAX_DECIMAL_VALUE;
-	}
-	
-	public double getTaxPercentValue()
-	{
-		return LocalOrderItem.TAX_PERCENT_VALUE;
+		return TaxCalculatorUtils.calculateTaxUSD(super.getUnitPrice(), super.getQuantity(), LocalOrderItem.TAX_RATE_DECIMAL_VALUE);
 	}
 }

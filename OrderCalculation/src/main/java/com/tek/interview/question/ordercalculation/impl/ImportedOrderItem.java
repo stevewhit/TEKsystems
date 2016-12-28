@@ -1,18 +1,21 @@
 package com.tek.interview.question.ordercalculation.impl;
 
-import com.tek.interview.question.ordercalculation.TaxableOrderItem;
-
-public final class ImportedOrderItem extends AbstractOrderItem implements TaxableOrderItem
+/**
+ * An item that is part of an order that is imported which contains a name, a unit price, and a quantity. The item has a standard tax rate of 15%.
+ * @author Steve Whitmire (swhit114@gmail.com)
+ *
+ */
+public final class ImportedOrderItem extends AbstractOrderItem
 {
 	/**
 	 * Constant tax rate for imported order items in decimal form.
 	 */
-	public static final double TAX_DECIMAL_VALUE = .15d;
+	public static final double TAX_RATE_DECIMAL_VALUE = .15d;
 	
 	/**
 	 * Constant tax rate for imported order items in percent form.
 	 */
-	public static final double TAX_PERCENT_VALUE = 15.0d;
+	public static final double TAX_RATE_PERCENT_VALUE = 15.0d;
 	
 	/**
 	 * Constructor that accepts a name and unit price. By default the quantity is set to 1.
@@ -36,14 +39,12 @@ public final class ImportedOrderItem extends AbstractOrderItem implements Taxabl
 	{
 		super(name, unitPrice, quantity);
 	}
-	
-	public double getTaxDecimalValue()
+
+	/**
+	 * {@inheritDoc} <pre>Note: Tax rate for imported items is 15%.</pre>
+	 */
+	public double getCalculatedTaxAmountUSD()
 	{
-		return ImportedOrderItem.TAX_DECIMAL_VALUE;
-	}
-	
-	public double getTaxPercentValue()
-	{
-		return ImportedOrderItem.TAX_PERCENT_VALUE;
+		return TaxCalculatorUtils.calculateTaxUSD(super.getUnitPrice(), super.getQuantity(), ImportedOrderItem.TAX_RATE_DECIMAL_VALUE);
 	}
 }

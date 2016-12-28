@@ -26,6 +26,13 @@ public class AbstractOrderItemTest
 		{
 			super(name, unitPrice, quantity);
 		}
+
+		public double getCalculatedTaxAmountUSD()
+		{
+			// Abstract method inherited from TaxableObject. Don't need to test the method here because
+			// it will be have different implementations in each of the children classes.
+			return 0;
+		}
 	}
 
 	private ConcreteAbstractOrderItem concreteAbstractOrderItem;
