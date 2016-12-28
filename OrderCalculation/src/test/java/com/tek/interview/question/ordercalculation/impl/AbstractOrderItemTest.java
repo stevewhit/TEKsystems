@@ -29,7 +29,7 @@ public class AbstractOrderItemTest
 
 		public double getCalculatedTaxAmountUSD()
 		{
-			// Abstract method inherited from TaxableObject. Don't need to test the method here because
+			// Inherited from TaxableObject. Don't need to test the method here because
 			// it will be have different implementations in each of the children classes.
 			return 0;
 		}

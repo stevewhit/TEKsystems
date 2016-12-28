@@ -6,7 +6,7 @@ package com.tek.interview.question.ordercalculation;
  * @author Steve Whitmire (swhit114@gmail.com)
  *
  */
-public interface OrderItem
+public interface OrderItem extends TaxableObject
 {
 	/**
 	 * Returns the name of the item. 

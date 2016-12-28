@@ -47,6 +47,13 @@ public class OrderItemTest
 		{
 			return quantity;
 		}
+
+		public double getCalculatedTaxAmountUSD()
+		{
+			// Inherited from TaxableObject. Don't need to test the method here because
+			// it will be have different implementations in each of the children classes.
+			return 0;
+		}
 	}
 	
 	public ConcreteOrderItem concreteOrderItem;

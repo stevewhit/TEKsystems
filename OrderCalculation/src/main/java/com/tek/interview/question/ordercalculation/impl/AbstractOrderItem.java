@@ -2,16 +2,14 @@
 package com.tek.interview.question.ordercalculation.impl;
 
 import java.text.DecimalFormat;
-
 import com.tek.interview.question.ordercalculation.OrderItem;
-import com.tek.interview.question.ordercalculation.TaxableObject;
 
 /**
  * Creates an abstract order item containing a name, unit price, and quantity
  * @author Steve Whitmire (swhit114@gmail.com)
  *
  */
-public abstract class AbstractOrderItem implements OrderItem, TaxableObject
+public abstract class AbstractOrderItem implements OrderItem
 {
 	/**
 	 * The name/description of the order item.
@@ -32,7 +30,7 @@ public abstract class AbstractOrderItem implements OrderItem, TaxableObject
 	 * Constructor that accepts a name and unit price. By default the quantity is set to 1.
 	 * @param name - The name or description of the order item. 
 	 * @param unitPrice - Price for one unit of the order item.
-	 * @throws IllegalArgumentException - Throws if name is null or empty, or if unitPrice is < 0
+	 * @throws IllegalArgumentException - Throws if name is null or empty, or if unitPrice is less than 0
 	 */
 	public AbstractOrderItem(String name, double unitPrice) throws IllegalArgumentException
 	{
@@ -44,7 +42,7 @@ public abstract class AbstractOrderItem implements OrderItem, TaxableObject
 	 * @param name - The name or description of the order item. 
 	 * @param unitPrice - Price for one unit of the order item.
 	 * @param quantity - The amount of these items to be added to order.
-	 * @throws IllegalArgumentException - Throws if name is null or empty, or if unitPrice is < 0
+	 * @throws IllegalArgumentException - Throws if name is null or empty, or if unitPrice is less than 0
 	 */
 	public AbstractOrderItem(String name, double unitPrice, int quantity) throws IllegalArgumentException
 	{
