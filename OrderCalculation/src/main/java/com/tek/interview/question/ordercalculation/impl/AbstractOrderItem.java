@@ -28,9 +28,9 @@ public abstract class AbstractOrderItem implements OrderItem
 	
 	/**
 	 * Constructor that accepts a name and unit price. By default the quantity is set to 1.
-	 * @param name - The name or description of the order item. 
-	 * @param unitPrice - Price for one unit of the order item.
-	 * @throws IllegalArgumentException - Throws if name is null or empty, or if unitPrice is less than 0
+	 * @param name The name or description of the order item. 
+	 * @param unitPrice Price for one unit of the order item.
+	 * @throws IllegalArgumentException Throws if name is null or empty, or if unitPrice is less than 0
 	 */
 	public AbstractOrderItem(String name, double unitPrice) throws IllegalArgumentException
 	{
@@ -39,10 +39,10 @@ public abstract class AbstractOrderItem implements OrderItem
 	
 	/**
 	 * Constructor that accepts a name, unit price, and a quantity
-	 * @param name - The name or description of the order item. 
-	 * @param unitPrice - Price for one unit of the order item.
-	 * @param quantity - The amount of these items to be added to order.
-	 * @throws IllegalArgumentException - Throws if name is null or empty, or if unitPrice is less than 0
+	 * @param name The name or description of the order item. 
+	 * @param unitPrice Price for one unit of the order item.
+	 * @param quantity The amount of these items to be added to order.
+	 * @throws IllegalArgumentException Throws if name is null or empty, or if unitPrice is less than 0
 	 */
 	public AbstractOrderItem(String name, double unitPrice, int quantity) throws IllegalArgumentException
 	{
@@ -90,8 +90,8 @@ public abstract class AbstractOrderItem implements OrderItem
 	
 	/**
 	 * Checks for a valid name and updates the order item name if valid. 
-	 * @param name - Name or description of the order item.
-	 * @throws IllegalArgumentException - Throws if name is null, empty, or only spaces.
+	 * @param name Name or description of the order item.
+	 * @throws IllegalArgumentException Throws if name is null, empty, or only spaces.
 	 */
 	private void setName(String name) throws IllegalArgumentException
 	{
@@ -105,8 +105,8 @@ public abstract class AbstractOrderItem implements OrderItem
 	
 	/**
 	 * Checks for a valid unit price and updates the order item unit price if valid.
-	 * @param unitPrice - Price for one unit of the order item.
-	 * @throws IllegalArgumentException - Throws if the unitPrice is less than 0.
+	 * @param unitPrice Price for one unit of the order item.
+	 * @throws IllegalArgumentException Throws if the unitPrice is less than 0.
 	 */
 	private void setUnitPrice(double unitPrice) throws IllegalArgumentException
 	{
@@ -120,8 +120,8 @@ public abstract class AbstractOrderItem implements OrderItem
 	
 	/**
 	 * Checks for a valid quantity and updates the order item quantity if valid.
-	 * @param quantity - The amount of these items to be added to order.
-	 * @throws IllegalArgumentException - Throws if quantity <= 0
+	 * @param quantity The amount of these items to be added to order.
+	 * @throws IllegalArgumentException Throws if quantity <= 0
 	 */
 	private void setQuantity(int quantity) throws IllegalArgumentException
 	{

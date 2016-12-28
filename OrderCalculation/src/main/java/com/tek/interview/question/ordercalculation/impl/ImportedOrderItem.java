@@ -19,9 +19,9 @@ public final class ImportedOrderItem extends AbstractOrderItem
 	
 	/**
 	 * Constructor that accepts a name and unit price. By default the quantity is set to 1.
-	 * @param name - The name or description of the order item. 
-	 * @param unitPrice - Price for one unit of the order item.
-	 * @throws IllegalArgumentException - Throws if name is null or empty, or if unitPrice is less than 0
+	 * @param name The name or description of the order item. 
+	 * @param unitPrice Price for one unit of the order item.
+	 * @throws IllegalArgumentException Throws if name is null or empty, or if unitPrice is less than 0
 	 */
 	public ImportedOrderItem(String name, double unitPrice) throws IllegalArgumentException
 	{
@@ -30,10 +30,10 @@ public final class ImportedOrderItem extends AbstractOrderItem
 	
 	/**
 	 * Constructor that accepts a name, unit price, and a quantity
-	 * @param name - The name or description of the order item. 
-	 * @param unitPrice - Price for one unit of the order item.
-	 * @param quantity - The amount of these items to be added to order.
-	 * @throws IllegalArgumentException - Throws if name is null or empty, or if unitPrice is less than 0
+	 * @param name The name or description of the order item. 
+	 * @param unitPrice Price for one unit of the order item.
+	 * @param quantity The amount of these items to be added to order.
+	 * @throws IllegalArgumentException Throws if name is null or empty, or if unitPrice is less than 0
 	 */
 	public ImportedOrderItem(String name, double unitPrice, int quantity) throws IllegalArgumentException
 	{

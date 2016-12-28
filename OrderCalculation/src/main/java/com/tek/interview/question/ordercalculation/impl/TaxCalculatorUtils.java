@@ -16,10 +16,10 @@ public final class TaxCalculatorUtils
 	
 	/**
 	 * Calculates the tax amount of one item in USD. 
-	 * @param unitPrice - The price of one unit in USD.
-	 * @param taxRateDecimal - The tax rate in decimal format as a double (between 0.0 and 1.0 inclusive).
-	 * @return - Returns the tax amount of one item in USD as a double.
-	 * @throws IllegalArgumentException - Throws if unitPrice or quantity are less than 0 or if taxRateDecimal is not between 0 and 1(inclusive). 
+	 * @param unitPrice The price of one unit in USD.
+	 * @param taxRateDecimal The tax rate in decimal format as a double (between 0.0 and 1.0 inclusive).
+	 * @return Returns the tax amount of one item in USD as a double.
+	 * @throws IllegalArgumentException Throws if unitPrice or quantity are less than 0 or if taxRateDecimal is not between 0 and 1(inclusive). 
 	 */
 	public static double calculateTaxUSD(double unitPrice, double taxRateDecimal) throws IllegalArgumentException
 	{
@@ -28,11 +28,11 @@ public final class TaxCalculatorUtils
 	
 	/**
 	 * Calculates the tax amount of one item in USD. 
-	 * @param unitPrice - The price of one unit in USD.
-	 * @param quantity - The number of units that are to be included in the tax calculation.
-	 * @param taxRateDecimal - The tax rate in decimal format as a double (between 0.0 and 1.0 inclusive).
-	 * @return - Returns the tax amount of one item in USD as a double.
-	 * @throws IllegalArgumentException - Throws if unitPrice or quantity are less than 0 or if taxRateDecimal is not between 0 and 1(inclusive). 
+	 * @param unitPrice The price of one unit in USD.
+	 * @param quantity The number of units that are to be included in the tax calculation.
+	 * @param taxRateDecimal The tax rate in decimal format as a double (between 0.0 and 1.0 inclusive).
+	 * @return Returns the tax amount of one item in USD as a double.
+	 * @throws IllegalArgumentException Throws if unitPrice or quantity are less than 0 or if taxRateDecimal is not between 0 and 1(inclusive). 
 	 */
 	public static double calculateTaxUSD(double unitPrice, int quantity, double taxRateDecimal) throws IllegalArgumentException
 	{
@@ -56,8 +56,8 @@ public final class TaxCalculatorUtils
 	
 	/**
 	 * Rounds the supplied value to two decimal places.
-	 * @param valueToRound - The value that needs to be rounded.
-	 * @return - Returns the valueToRound rounded to two decimal places, as a double.
+	 * @param valueToRound The value that needs to be rounded.
+	 * @return Returns the valueToRound rounded to two decimal places, as a double.
 	 */
 	private static double roundToTwoDecimalPlaces(double valueToRound)
 	{
