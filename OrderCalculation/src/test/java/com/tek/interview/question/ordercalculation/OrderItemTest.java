@@ -20,17 +20,14 @@ public class OrderItemTest
 		private String name;
 		private double unitPrice;
 		private int quantity;
+		private String itemId;
 		
-		public ConcreteOrderItem()
-		{
-			
-		}
-		
-		public ConcreteOrderItem(String name, double unitPrice, int quantity)
+		public ConcreteOrderItem(String name, double unitPrice, int quantity, String itemId)
 		{
 			this.name = name;
 			this.unitPrice = unitPrice;
 			this.quantity = quantity;
+			this.itemId = itemId;
 		}
 
 		public String getName()
@@ -54,6 +51,11 @@ public class OrderItemTest
 			// it will be have different implementations in each of the children classes.
 			return 0;
 		}
+
+		public String getItemId()
+		{
+			return itemId;
+		}
 	}
 	
 	public ConcreteOrderItem concreteOrderItem;
@@ -65,7 +67,7 @@ public class OrderItemTest
 	@Before
 	public void setUp() throws Exception
 	{
-		concreteOrderItem = new ConcreteOrderItem("mock Order Item", 3902.54, 2);
+		concreteOrderItem = new ConcreteOrderItem("mock Order Item", 3902.54, 2, "12edf434tfef");
 	}
 	
 	/**
@@ -104,4 +106,9 @@ public class OrderItemTest
 		assertEquals(2, concreteOrderItem.getQuantity());
 	}
 	
+	@Test
+	public void testGetItemId()
+	{
+		assertEquals("12edf434tfef", concreteOrderItem.getItemId());
+	}
 }

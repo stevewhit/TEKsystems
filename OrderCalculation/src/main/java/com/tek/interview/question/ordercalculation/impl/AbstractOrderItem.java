@@ -2,6 +2,8 @@
 package com.tek.interview.question.ordercalculation.impl;
 
 import java.text.DecimalFormat;
+import java.util.UUID;
+
 import com.tek.interview.question.ordercalculation.OrderItem;
 
 /**
@@ -27,6 +29,11 @@ public abstract class AbstractOrderItem implements OrderItem
 	private int quantity;
 	
 	/**
+	 * The unique ID generated for this item.
+	 */
+	private String itemId;
+	
+	/**
 	 * Constructor that accepts a name and unit price. By default the quantity is set to 1.
 	 * @param name The name or description of the order item. 
 	 * @param unitPrice Price for one unit of the order item.
@@ -49,6 +56,8 @@ public abstract class AbstractOrderItem implements OrderItem
 		setName(name);
 		setUnitPrice(unitPrice);
 		setQuantity(quantity);
+		
+		this.itemId = generateUniqueID();
 	}
 	
 	/**
@@ -73,6 +82,14 @@ public abstract class AbstractOrderItem implements OrderItem
 	public int getQuantity()
 	{
 		return this.quantity;
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	public String getItemId()
+	{
+		return itemId;
 	}
 
 	/**
@@ -131,5 +148,14 @@ public abstract class AbstractOrderItem implements OrderItem
 		}
 		
 		this.quantity = quantity;
+	}
+	
+	/**
+	 * Creates and returns a psuedo-random ID.
+	 * @return Returns a psuedo-random ID as a String.
+	 */
+	private String generateUniqueID()
+	{
+		return UUID.randomUUID().toString();
 	}
 }

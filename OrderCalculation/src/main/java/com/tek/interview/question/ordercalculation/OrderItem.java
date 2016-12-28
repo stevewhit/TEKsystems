@@ -25,4 +25,10 @@ public interface OrderItem extends TaxableObject
 	 * @return Returns the quantity of this item in a given order as an int.
 	 */
 	public int getQuantity();
+	
+	/**
+	 * Returns the unique id of this item.
+	 * @return Returns the unique id of this item as a String.
+	 */
+	public String getItemId();
 }

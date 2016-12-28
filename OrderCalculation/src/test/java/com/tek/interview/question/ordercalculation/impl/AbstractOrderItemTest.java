@@ -200,4 +200,14 @@ public class AbstractOrderItemTest
 		assertEquals(concreteAbstractOrderItem.toString(), "3 Chocolate cake: 0.000000000000000000001");
 	}
 	
+	/**
+	 * Test method for {@link com.tek.interview.question.ordercalculation.impl.AbstractOrderItem#getItemId()}.
+	 */
+	@Test
+	public void testGetItemId()
+	{
+		assertTrue(concreteAbstractOrderItem.getItemId() != null);
+		assertTrue(concreteAbstractOrderItem.getItemId().trim().length() > 0);
+	}
+	
 }
