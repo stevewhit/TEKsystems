@@ -27,7 +27,7 @@ public final class SalesCalculatorUtils
 	}
 	
 	/**
-	 * Calculates the tax amount of one item in USD. 
+	 * Calculates the tax amount of one item in USD. Precision is set to 2 decimal places.
 	 * @param unitPrice The price of one unit in USD.
 	 * @param quantity The number of units that are to be included in the tax calculation.
 	 * @param taxRateDecimal The tax rate in decimal format as a double (between 0.0 and 1.0 inclusive).
