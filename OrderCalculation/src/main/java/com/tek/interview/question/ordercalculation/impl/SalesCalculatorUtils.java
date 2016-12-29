@@ -41,9 +41,9 @@ public final class SalesCalculatorUtils
 			throw new IllegalArgumentException("Illegal unitPrice supplied. unitPrice should be >= 0.");
 		}
 		
-		if (taxRateDecimal < 0 || taxRateDecimal > 1)
+		if (taxRateDecimal < 0)
 		{
-			throw new IllegalArgumentException("Illegal taxRateDecimal supplied. Tax rate should be between 0 and 1 (inclusive).");
+			throw new IllegalArgumentException("Illegal taxRateDecimal supplied. Tax rate should be >= 0.");
 		}
 		
 		if (quantity < 0)
@@ -51,7 +51,7 @@ public final class SalesCalculatorUtils
 			throw new IllegalArgumentException("Illegal quantity supplied. Quantity should be >= 0.");
 		}
 		
-		return roundToTwoDecimalPlaces(unitPrice * quantity * taxRateDecimal);
+		return roundToTwoDecimalPlaces((float)unitPrice * quantity * taxRateDecimal);
 	}
 	
 	/**

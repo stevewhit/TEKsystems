@@ -33,15 +33,6 @@ public class SalesCalculatorUtilsTest
 	/**
 	 * Test method for {@link com.tek.interview.question.ordercalculation.impl.SalesCalculatorUtils#calculateTaxUSD(double, double)}.
 	 */
-	@Test(expected=IllegalArgumentException.class)
-	public void testCalculateTaxUSDDoubleDouble_InvalidTaxRateDecimal2()
-	{
-		SalesCalculatorUtils.calculateTaxUSD(12.443, 1.00000000001);
-	}
-	
-	/**
-	 * Test method for {@link com.tek.interview.question.ordercalculation.impl.SalesCalculatorUtils#calculateTaxUSD(double, double)}.
-	 */
 	@Test
 	public void testCalculateTaxUSDDoubleDouble_ValidCalculations()
 	{
@@ -92,15 +83,6 @@ public class SalesCalculatorUtilsTest
 	public void testCalculateTaxUSDDoubleIntDouble_InvalidTaxRateDecimal1()
 	{
 		SalesCalculatorUtils.calculateTaxUSD(144, 12, -00.000000001);
-	}
-	
-	/**
-	 * Test method for {@link com.tek.interview.question.ordercalculation.impl.SalesCalculatorUtils#calculateTaxUSD(double, int, double)}.
-	 */
-	@Test(expected=IllegalArgumentException.class)
-	public void testCalculateTaxUSDDoubleIntDouble_InvalidTaxRateDecimal2()
-	{
-		SalesCalculatorUtils.calculateTaxUSD(144, 12, 1.00123);
 	}
 	
 	/**
