@@ -12,12 +12,12 @@ public class LocalOrderItem extends AbstractOrderItem
 	/**
 	 * Constant tax rate for local order items in decimal form.
 	 */
-	public static final double TAX_RATE_DECIMAL_VALUE = .10d;
+	public static final double TAX_RATE_DECIMAL_VALUE = .10;
 	
 	/**
 	 * Constant tax rate for local order items in percent form.
 	 */
-	public static final double TAX_RATE_PERCENT_VALUE = 10.0d;
+	public static final double TAX_RATE_PERCENT_VALUE = 10.0;
 	
 	/**
 	 * Constructor that accepts a name and unit price. By default the quantity is set to 1.
@@ -61,8 +61,7 @@ public class LocalOrderItem extends AbstractOrderItem
 		{		
 			DecimalFormat formatter = new DecimalFormat("0.####################################");
 			
-			double priceTimesQuantity = getUnitPrice() * getQuantity();
-			double priceWithTax = priceTimesQuantity * (1.0 + LocalOrderItem.TAX_RATE_DECIMAL_VALUE);		
+			double priceWithTax = (getUnitPrice() * getQuantity()) + getCalculatedTaxAmountUSD();	
 			double roundedPriceWithTax = SalesCalculatorUtils.roundToTwoDecimalPlaces(priceWithTax);
 			
 			return String.format("%1$d %2$s: %3$s", getQuantity(), getName(), formatter.format(roundedPriceWithTax));

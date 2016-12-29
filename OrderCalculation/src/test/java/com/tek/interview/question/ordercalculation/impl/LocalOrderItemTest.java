@@ -166,7 +166,7 @@ public class LocalOrderItemTest extends AbstractOrderItemTest
 	{	
 		assertEquals(localOrderItem.toString(), "123 ValidName: 1757.23");
 		
-		localOrderItem = new LocalOrderItem("ValidName", 9.75, 1);
-		assertEquals(localOrderItem.toString(), "1 ValidName: 10.73");
+		localOrderItem = new LocalOrderItem("ValidName", 0.85, 1);
+		assertEquals(localOrderItem.toString(), "1 ValidName: 0.94");
 	}
 }
