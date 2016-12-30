@@ -227,6 +227,49 @@ public class ShoppingOrderTest
 	
 	//========================================================
 
+	@Test 
+	public void testEquals_NullObj()
+	{
+		assertFalse(orderOneItem.equals(null));
+	}
+	
+	@Test 
+	public void testEquals_DiffClass()
+	{
+		assertFalse(orderOneItem.equals(1));
+		assertFalse(orderOneItem.equals(""));
+	}
+	
+	@Test 
+	public void testEquals_DiffOrderId()
+	{
+		ShoppingOrder orderToCompare = new ShoppingOrder("Diff OrderName");
+		orderToCompare.addOrderItem("First Item", 12.3321);
+		
+		assertFalse(orderOneItem.equals(orderToCompare));
+	}
+	
+	@Test 
+	public void testEquals_diffItemSize()
+	{
+		ShoppingOrder orderToCompare = new ShoppingOrder(orderOneItem.getOrderId());
+		orderToCompare.addOrderItem("First Item", 12.3321);
+		orderToCompare.addOrderItem("Wrong size!", 123.342);
+		
+		assertFalse(orderOneItem.equals(orderToCompare));
+	}
+	
+	@Test 
+	public void testEquals_SameSizeDiffItems()
+	{
+		ShoppingOrder orderToCompare = new ShoppingOrder(orderOneItem.getOrderId());
+		orderToCompare.addOrderItem("Wrong Id", 12.3321);
+
+		assertFalse(orderOneItem.equals(orderToCompare));	
+	}
+	
+	//========================================================
+	
 	@Test
 	public void testGetCalculatedTaxAmountUSD1()
 	{

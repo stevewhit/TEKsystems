@@ -5,10 +5,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
-import java.util.function.DoubleToLongFunction;
-
-import org.junit.runners.model.InitializationError;
-
 import com.tek.interview.question.ordercalculation.OrderItem;
 import com.tek.interview.question.ordercalculation.TaxableObject;
 
@@ -121,31 +117,6 @@ public class ShoppingOrder implements TaxableObject
 	}
 	
 	/**
-	 * Adds the given OrderItem to the ShoppingOrder. 
-	 * @param itemToAdd The item to add to the order.
-	 * @return Returns the id of the item that is being added. (For tracking reasons)
-	 * @throws IllegalArgumentException Throws if trying to add a null item to the order.
-	 * @throws IllegalStateException Throws if class hasn't been properly initialized.
-	 */
-	private String addOrderItem(OrderItem itemToAdd) throws IllegalArgumentException, IllegalStateException
-	{
-		if ( !isValidShoppingOrder() )
-		{
-			throw new IllegalStateException("Cannot add new items because shopping order needs to be initialized first.");
-		}
-		
-		// Validate the item that is being added.
-		if (itemToAdd == null || !itemToAdd.isValidOrderItem())
-		{
-			throw new IllegalArgumentException("Cannot add supplied orderitem to shoppingorder because it is null or invalid.");
-		}
-		
-		orderItemList.add(itemToAdd);
-		
-		return itemToAdd.getItemId();
-	}
-	
-	/**
 	 * Removes an OrderItem with the given id from the ShoppingOrder. Returns a value depending on what the status of the removal was.
 	 * @param itemId The ID of the item that is to be removed.
 	 * @return Returns true if the item was sucessfully removed, otherwise it returns false.
@@ -167,7 +138,7 @@ public class ShoppingOrder implements TaxableObject
 			{
 				OrderItem item = itemIterator.next();
 				
-				if (item.isValidOrderItem() && item.getItemId().equals(itemId))
+				if (item != null && item.isValidOrderItem() && item.getItemId().equals(itemId))
 				{
 					itemIterator.remove();
 					
@@ -231,7 +202,21 @@ public class ShoppingOrder implements TaxableObject
 	 */
 	public boolean isValidShoppingOrder()
 	{
-		return (orderId != null) && (!orderId.trim().isEmpty()) && (orderItemList != null);
+		if (orderItemList == null)
+		{
+			return false;
+		}
+		
+		// Check each item to make sure they're valid.
+		for(OrderItem item : orderItemList)
+		{
+			if (item == null || !item.isValidOrderItem() )
+			{
+				return false;
+			}
+		}
+		
+		return (orderId != null) && (!orderId.trim().isEmpty());
 	}
 	
 	/**
@@ -283,6 +268,53 @@ public class ShoppingOrder implements TaxableObject
 		}
 		
 		return sb.toString();
+	}
+	
+	/**
+	 * Checks for equality between two orders by comparing the orderId and items stored inside them.
+	 */
+	@Override
+	public boolean equals(Object object)
+	{
+		if (object == null)
+		{
+			return false;
+		}
+		
+		if (!ShoppingOrder.class.isAssignableFrom(object.getClass()))
+		{
+			return false;
+		}
+		
+		final ShoppingOrder castObj = (ShoppingOrder) object;
+		
+		// Compare orderIds
+		if (castObj.getOrderId() != this.getOrderId())
+		{
+			return false;
+		}
+
+		if (castObj.getAllOrderItems().size() != getAllOrderItems().size())
+		{
+			return false;
+		}
+		
+		Iterator<OrderItem> castObjIter = castObj.getAllOrderItems().listIterator();
+		Iterator<OrderItem> thisObjIter = getAllOrderItems().listIterator(); 
+		
+		// Check each item in the cast object's list
+		while(thisObjIter.hasNext() && castObjIter.hasNext())
+		{
+			OrderItem thisItem = thisObjIter.next();
+			OrderItem objItem = castObjIter.next();
+			
+			if (!thisItem.equals(objItem))
+			{
+				return false;
+			}
+		}
+				
+		return true;
 	}
 	
 	/**
@@ -348,6 +380,31 @@ public class ShoppingOrder implements TaxableObject
 		}
 		
 		return SalesCalculatorUtils.roundToTwoDecimalPlaces(totalPrice);
+	}
+	
+	/**
+	 * Adds the given OrderItem to the ShoppingOrder. 
+	 * @param itemToAdd The item to add to the order.
+	 * @return Returns the id of the item that is being added. (For tracking reasons)
+	 * @throws IllegalArgumentException Throws if trying to add a null item to the order.
+	 * @throws IllegalStateException Throws if class hasn't been properly initialized.
+	 */
+	private String addOrderItem(OrderItem itemToAdd) throws IllegalArgumentException, IllegalStateException
+	{
+		if ( !isValidShoppingOrder() )
+		{
+			throw new IllegalStateException("Cannot add new items because shopping order needs to be initialized first.");
+		}
+		
+		// Validate the item that is being added.
+		if (itemToAdd == null || !itemToAdd.isValidOrderItem())
+		{
+			throw new IllegalArgumentException("Cannot add supplied orderitem to shoppingorder because it is null or invalid.");
+		}
+		
+		orderItemList.add(itemToAdd);
+		
+		return itemToAdd.getItemId();
 	}
 	
 	/**
