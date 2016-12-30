@@ -44,4 +44,12 @@ public interface OrderItem extends TaxableObject
 	 */
 	@Override
 	public String toString();
+	
+	/**
+	 * Checks for equality between two items by evaluating the name, unit price, quantity, and id.
+	 * @param object The object that is being compared to this object.
+	 * @return Returns true if the object is the exact same; Returns false otherwise.
+	 */
+	@Override
+	public boolean equals(Object object);
 }

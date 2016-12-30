@@ -204,6 +204,40 @@ public class AbstractOrderItemTest
 		assertTrue(concreteAbstractOrderItem.getItemId().trim().length() > 0);
 	}
 	
+	//==========================================================================
+	
+	@Test
+	public void testEquals_Valid()
+	{
+		ConcreteAbstractOrderItem concreteAbstractOrderItemCompare = concreteAbstractOrderItem;
+		
+		assertTrue(concreteAbstractOrderItem.equals(concreteAbstractOrderItemCompare));
+	}
+	
+	@Test
+	public void testEquals_DiffVariables()
+	{
+		ConcreteAbstractOrderItem concreteAbstractOrderItemCompare = 
+				new ConcreteAbstractOrderItem(concreteAbstractOrderItem.getName(), 12.25);
+		
+		assertFalse(concreteAbstractOrderItem.equals(concreteAbstractOrderItemCompare));
+	}
+	
+	@Test
+	public void testEquals_NullCompare()
+	{
+		assertFalse(concreteAbstractOrderItem.equals(null));
+	}
+	
+	@Test
+	public void testEquals_DiffObject()
+	{
+		String compareMe = "throw false";
+		
+		assertFalse(concreteAbstractOrderItem.equals(compareMe));
+	}
+	
+	//==========================================================================
 	/**
 	 * Test method for {@link com.tek.interview.question.ordercalculation.impl.AbstractOrderItem#isValidOrderItem()}.
 	 */

@@ -1,9 +1,9 @@
 
 package com.tek.interview.question.ordercalculation.impl;
 
-import java.text.DecimalFormat;
-import java.util.UUID;
+import static org.hamcrest.CoreMatchers.instanceOf;
 
+import java.util.UUID;
 import com.tek.interview.question.ordercalculation.OrderItem;
 
 /**
@@ -107,6 +107,38 @@ public abstract class AbstractOrderItem implements OrderItem
 	public boolean isValidOrderItem()
 	{
 		return (name != null) && (!name.trim().isEmpty()) && (unitPrice >= 0) && (quantity > 0) && (itemId != null) && (!itemId.trim().isEmpty());
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean equals(Object object)
+	{
+		if (object == null)
+		{
+			return false;
+		}
+		
+		if(!AbstractOrderItem.class.isAssignableFrom(object.getClass()))
+		{
+			return false;
+		}
+		
+		final OrderItem castObj = (AbstractOrderItem)object;
+		
+		// Check each of the variables
+		if (	castObj.getItemId() == this.getItemId() && 
+				castObj.getName() == this.getName() && 
+				castObj.getQuantity() == this.getQuantity() && 
+				castObj.getUnitPrice() == this.getUnitPrice()
+			)
+		{
+			return true;
+		}
+		
+		// Object's variables don't match this one.
+		return false;
 	}
 	
 	/**
