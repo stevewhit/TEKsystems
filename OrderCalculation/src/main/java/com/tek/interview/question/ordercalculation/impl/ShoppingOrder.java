@@ -243,11 +243,12 @@ public class ShoppingOrder implements TaxableObject
 			
 			if (hasOrderItems())
 			{
+				// Append each of the items.
 				for (Iterator<OrderItem> itemIterator = orderItemList.listIterator(); itemIterator.hasNext();)
 				{			
 					OrderItem item = itemIterator.next();
 					
-					if ( item.isValidOrderItem() )
+					if ( item != null && item.isValidOrderItem() )
 					{
 						sb.append(item.toString() + "\n");
 					}
@@ -265,6 +266,10 @@ public class ShoppingOrder implements TaxableObject
 			
 			// Append the total item cost (without tax).
 			sb.append(String.format("Total: %1$s", formatter.format(getTotalCostMinusSalesTax())));
+		}
+		else
+		{
+			sb.append("Invalid order");
 		}
 		
 		return sb.toString();
