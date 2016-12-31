@@ -1,8 +1,6 @@
 
 package com.tek.interview.question.ordercalculation.impl;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-
 import java.util.UUID;
 import com.tek.interview.question.ordercalculation.OrderItem;
 
