@@ -100,6 +100,7 @@ public class ShoppingBill
 			{
 				ShoppingOrder order = orderIterator.next();
 				
+				// Remove if it's a matching order.
 				if (order != null && order.isValidShoppingOrder() && order.equals(orderToRemove))
 				{
 					orderIterator.remove();
@@ -115,7 +116,7 @@ public class ShoppingBill
 	
 	/**
 	 * Removes all shopping orders from the bill.
-	 * @throws IllegalStateException
+	 * @throws IllegalStateException Throws if bill has not been properly initialized.
 	 */
 	public void removeAllShoppingOrders() throws IllegalStateException
 	{
