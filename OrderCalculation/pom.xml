@@ -4,7 +4,7 @@
 
   <groupId>com.tek.interview.question</groupId>
   <artifactId>OrderCalculation</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>jar</packaging>
 
   <name>OrderCalculation</name>
@@ -12,13 +12,45 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <empVersion>1.2.1</empVersion>
+    <junitVersion>4.12</junitVersion>
   </properties>
+
+  <build>
+   	<plugins>
+      <plugin>
+  		<groupId>org.codehaus.mojo</groupId>
+  		<artifactId>exec-maven-plugin</artifactId>
+  		<version>${empVersion}</version>
+  		<executions>
+    	  <execution>
+    	    <id>bugfixes</id>
+      		<goals>
+        	  <goal>java</goal>
+      		</goals>
+      		<configuration>
+    	  	  <mainClass>com.tek.interview.question.main.Foo</mainClass>
+  			</configuration>
+    	  </execution>
+    	  <execution>
+    	    <id>refactored</id>
+    	    <goals>
+        	  <goal>java</goal>
+      		</goals>
+      		<configuration>
+    	  	  <mainClass>com.tek.interview.question.main.Bar</mainClass>
+  			</configuration>
+    	  </execution>
+  		</executions>
+	  </plugin>  
+    </plugins>
+  </build>
 
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.12</version>
+      <version>${junitVersion}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

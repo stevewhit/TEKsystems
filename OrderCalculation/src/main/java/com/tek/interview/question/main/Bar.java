@@ -11,7 +11,7 @@ public class Bar
 	 */
 	public static void main(String[] args)
 	{
-		System.out.println("OrderCalculation v2.00 - Refactored Code");
+		System.out.println("\nOrderCalculation v2.00 - Refactored Code");
 
 		ShoppingBill shoppingBill = new ShoppingBill();
 		

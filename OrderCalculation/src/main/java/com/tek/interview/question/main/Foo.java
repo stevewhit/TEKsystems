@@ -219,6 +219,7 @@ class calculator {
 		// Bug Found: Math.Floor removes any precision beyond the decimal.
 		//System.out.println("Sum of orders: " + Math.floor(grandtotal * 100) / 100);
 		System.out.println("Sum of orders: " + rounding(grandtotal));
+		
 	}
 }
 
@@ -226,7 +227,7 @@ public class Foo {
 
 	public static void main(String[] args) throws Exception {
 
-		System.out.println("OrderCalculation v1.00 - Fix all bugs\n");
+		System.out.println("\nOrderCalculation v1.00 - Fix all bugs\n");
 		
 		// Bug Found: HashMaps offer a performance enhancement when the order of the entrysets don't matter because entrysets
 		// are added to the map according to their calculated hash values rather than the order with which they are added.
@@ -272,5 +273,7 @@ public class Foo {
 
 		new calculator().calculate(o);
 
+		// Formatting space.
+		System.out.println("");
 	}
 }
