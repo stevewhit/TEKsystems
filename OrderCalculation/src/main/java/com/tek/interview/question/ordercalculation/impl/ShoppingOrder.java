@@ -61,11 +61,11 @@ public class ShoppingOrder implements TaxableObject
 	 * Creates and adds a new item to the order with the given name, and price. 
 	 * @param itemName Name of the item that is being added to the order.
 	 * @param unitPrice Price of the item in USD
-	 * @return Returns the itemId associated with the order item that is created.
+	 * @return Returns the order item that is created.
 	 * @throws IllegalArgumentException Throws if the name or price are invalid.
 	 * @throws IllegalStateException Throws if class hasn't been properly initialized.
 	 */
-	public String addOrderItem(String itemName, double unitPrice) throws IllegalArgumentException, IllegalStateException
+	public OrderItem addOrderItem(String itemName, double unitPrice) throws IllegalArgumentException, IllegalStateException
 	{
 		return addOrderItem(itemName, unitPrice, 1);
 	}
@@ -75,11 +75,11 @@ public class ShoppingOrder implements TaxableObject
 	 * @param itemName Name of the item that is being added to the order.
 	 * @param unitPrice Price of the item in USD
 	 * @param quantity The number of this item that is added to the order.
-	 * @return Returns the itemId associated with the order item that is created.
+	 * @return Returns the order item that is created.
 	 * @throws IllegalArgumentException Throws if the name or price are invalid.
 	 * @throws IllegalStateException Throws if class hasn't been properly initialized.
 	 */
-	public String addOrderItem(String itemName, double unitPrice, int quantity) throws IllegalArgumentException, IllegalStateException
+	public OrderItem addOrderItem(String itemName, double unitPrice, int quantity) throws IllegalArgumentException, IllegalStateException
 	{
 		if ( !isValidShoppingOrder() )
 		{
@@ -176,6 +176,7 @@ public class ShoppingOrder implements TaxableObject
 	
 	/**
 	 * Returns boolean indicating whether the ShoppingOrder has OrderItems in it.
+	 * @return Returns true if the order has items in it, otherwise false.
 	 */
 	public boolean hasOrderItems() throws IllegalStateException
 	{
@@ -189,7 +190,7 @@ public class ShoppingOrder implements TaxableObject
 	
 	/**
 	 * Returns the id/name of this ShoppingOrder.
-	 * @return
+	 * @return Returns the id of this shopping order as a String.
 	 */
 	public String getOrderId()
 	{
@@ -390,11 +391,11 @@ public class ShoppingOrder implements TaxableObject
 	/**
 	 * Adds the given OrderItem to the ShoppingOrder. 
 	 * @param itemToAdd The item to add to the order.
-	 * @return Returns the id of the item that is being added. (For tracking reasons)
+	 * @return Returns the item that is being added.
 	 * @throws IllegalArgumentException Throws if trying to add a null item to the order.
 	 * @throws IllegalStateException Throws if class hasn't been properly initialized.
 	 */
-	private String addOrderItem(OrderItem itemToAdd) throws IllegalArgumentException, IllegalStateException
+	private OrderItem addOrderItem(OrderItem itemToAdd) throws IllegalArgumentException, IllegalStateException
 	{
 		if ( !isValidShoppingOrder() )
 		{
@@ -409,7 +410,7 @@ public class ShoppingOrder implements TaxableObject
 		
 		orderItemList.add(itemToAdd);
 		
-		return itemToAdd.getItemId();
+		return itemToAdd;
 	}
 	
 	/**

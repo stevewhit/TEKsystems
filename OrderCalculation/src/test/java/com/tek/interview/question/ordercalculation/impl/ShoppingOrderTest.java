@@ -125,7 +125,7 @@ public class ShoppingOrderTest
 		assertFalse(orderOneItem.removeOrderItemIfExists(""));
 		assertFalse(orderOneItem.removeOrderItemIfExists("won't find this"));
 		
-		String idToRemove = orderOneItem.addOrderItem("remove me", 223.45);
+		String idToRemove = orderOneItem.addOrderItem("remove me", 223.45).getItemId();
 		int orderSize = orderOneItem.getAllOrderItems().size();
 		
 		assertTrue(orderOneItem.removeOrderItemIfExists(idToRemove));
@@ -150,9 +150,10 @@ public class ShoppingOrderTest
 	{
 		orderOneItem = new ShoppingOrder();
 		
-		String addedItemId = orderOneItem.addOrderItem("valid", 23.43);
+		OrderItem addedItem = orderOneItem.addOrderItem("valid", 23.43);
 		
-		assertEquals(orderOneItem.getAllOrderItems().get(0).getItemId(), addedItemId);
+		assertTrue(orderOneItem.getAllOrderItems().size() == 1);
+		assertTrue(orderOneItem.getAllOrderItems().get(0).equals(addedItem));
 		
 	}
 	
