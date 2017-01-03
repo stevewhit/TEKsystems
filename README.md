@@ -13,7 +13,8 @@ This project consists of two separate versions:
                       in the supplied java code.
   2. @*refactored* -->  Refactored version of OrderCalculation that is designed using a much cleaner, 
                       modular approach. This is achieved by utilizing advanced coding techniques 
-                      and tested via JUnit4 unit tests.                                     
+                      and tested via JUnit4 unit tests.  
+                      
 To run each version of OrderCalculation via the command prompt:
   1. Verify appropriate environment and tools are downloaded. (type '*mvn -version*' in cmd prompt)
     - Apache Maven v3.3.9+
