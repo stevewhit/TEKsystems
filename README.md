@@ -1,5 +1,7 @@
 README file for all TEKSYSTEMS Interview Code Test Projects.
 
+Developed by: Steve Whitmire (swhit114@gmail.com)
+
 ##TEKsystems:OrderCalculation
 
 ###Description
