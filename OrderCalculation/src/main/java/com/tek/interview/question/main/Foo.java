@@ -226,6 +226,8 @@ public class Foo {
 
 	public static void main(String[] args) throws Exception {
 
+		System.out.println("OrderCalculation v1.00 - Fix all bugs\n");
+		
 		// Bug Found: HashMaps offer a performance enhancement when the order of the entrysets don't matter because entrysets
 		// are added to the map according to their calculated hash values rather than the order with which they are added.
 		// In this case, we care about the order of the entries added.
