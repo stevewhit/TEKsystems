@@ -1,4 +1,4 @@
-README file for all TEKSYSTEMS Interview Code Test Projects.
+ README file for all TEKSYSTEMS Interview Code Test Projects.
 
 Developed by: Steve Whitmire (swhit114@gmail.com)
 
@@ -10,10 +10,10 @@ OrderCalculation is a console program designed to compute sales taxes and totals
 ###Usage Notes
 This project consists of two separate versions: 
   1. @*bugfixes*   -->  First version of OrderCalculation that is designed to fix all program bugs
-                      in the supplied java code.
+                      in the supplied java code. Solution is found in '*com.tek.interview.question.main.Foo*'.
   2. @*refactored* -->  Refactored version of OrderCalculation that is designed using a much cleaner, 
                       modular approach. This is achieved by utilizing advanced coding techniques 
-                      and tested via JUnit4 unit tests.  
+                      and tested via JUnit4 unit tests. Solution is found in '*com.tek.interview.question.main.Bar*'.
                       
 To run each version of OrderCalculation via the command prompt:
   1. Verify appropriate environment and tools are downloaded. (type '*mvn -version*' in cmd prompt)
